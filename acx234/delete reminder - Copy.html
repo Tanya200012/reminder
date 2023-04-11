@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Reminder Form</title>
+    <!-- Link to CSS stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Link to calendar icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <h1>Delete Reminder</h1>
+    <form>
+        <label for="date">select a date:</label>
+		<input type="date" id="date" name="date"><br><br>
+    <form action="/action_page.php">
+      <label for="appt">Select a time:</label>
+      <input type="time" id="appt" name="appt">
+      
+    </form>
+      </div>
+      <br>
+      <label for="subject">Subject:</label>
+      <select id="subject" name="subject">
+        <option value="">-- Select subject --</option>
+        <option value="Meeting">Meeting</option>
+        <option value="Appointment">Appointment</option>
+        <option value="Deadline">Deadline</option>
+        <option value="Other">Other</option>
+      </select>
+      <br>
+      <label for="reminder">Reminder:</label>
+      <select id="reminder" name="reminder">
+        <option value="">-- Select reminder --</option>
+        <option value="7 days">7 days</option>
+        <option value="5 days">5 days</option>
+        <option value="3 days">3 days</option>
+        <option value="2 days">2 days</option>
+      </select>
+      <br>
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" readonly></textarea>
+      <br>
+      <input type="submit" value="Submit">
+      <input type = "button" value = "cancel" onclick = "cancel()">
+    </form>
+
+<a href="file:///C:/Users/91955/Your%20have%20been%20logged%20out.html">Log Out</a>
+<script>
+		function cancel() {
+			window.open("file:///C:/Users/avi/Desktop/acxiom/reminder.html");
+		}
+	</script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Reminder Page</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<script>
+		const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+checkboxes.forEach(checkbox => {
+  checkbox.addEventListener('change', function() {
+    if (this.checked) {
+      checkboxes.forEach(otherCheckbox => {
+        if (otherCheckbox !== this) {
+          otherCheckbox.checked = false;
+        }
+      });
+    }
+  });
+});
+
+	</script>
+	<h1>Modify Reminder</h1>
+	<form>
+		<label for="date">select a date:</label>
+		<input type="date" id="date" name="date"><br><br>
+    <form action="/action_page.php">
+      <label for="appt">Select a time:</label>
+      <input type="time" id="appt" name="appt">
+      
+    </form><br><br>
+		<label for="subject">Select a subject:</label>
+		<select id="subject" name="subject">
+			<option value="Meeting">Meeting</option>
+			<option value="Appointment">Appointment</option>
+			<option value="Deadline">Deadline</option>
+		</select><br><br>
+		<label for="description">Enter description:</label><br>
+		<textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
+		<label for="email">Enter email address:</label>
+		<input type="email" id="email" name="email"><br><br>
+		<label for="text">Enter text address:</label>
+		<input type="text" id="text" name="text"><br><br>
+		<label for="recruit">Recruit for Next:</label><br>
+		<input type="checkbox" id="7days" name="7days" value="7days">
+		<label for="7days">7 days</label><br>
+		<input type="checkbox" id="5days" name="5days" value="5days">
+		<label for="5days">5 days</label><br>
+		<input type="checkbox" id="3days" name="3days" value="3days">
+		<label for="3days">3 days</label><br>
+		<input type="checkbox" id="2days" name="2days" value="2days">
+		<label for="2days">2 days</label><br><br>
+		<input type="submit" value="Submit">
+		<input type = "button" value = "cancel" onclick = "cancel()">
+    </form>
+    <a href="file:///C:/Users/91955/Your%20have%20been%20logged%20out.html">Log Out</a>
+    <script>
+            function cancel() {
+                window.open("file:///C:/Users/avi/Desktop/acxiom/reminder.html");
+            }
+        </script>
+    </body>
+    </html>

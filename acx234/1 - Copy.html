@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Reminder Form</title>
+    <link rel="stylesheet" href="1.css">
+	<script>
+		function setReminder() {
+			// Get the user input for the reminder date and time
+			var reminderDate = document.getElementById("reminderDate").value;
+			var reminderTime = document.getElementById("reminderTime").value;
+
+			// Set the reminder using the Date object in JavaScript
+			var reminder = new Date(reminderDate + " " + reminderTime);
+
+			// Get the user input for the reminder subject, description, email, contact, sms, and recurrence
+			var reminderSubject = document.getElementById("reminderSubject").value;
+			var reminderDescription = document.getElementById("reminderDescription").value;
+			var reminderEmail = document.getElementById("reminderEmail").value;
+			var reminderContact = document.getElementById("reminderContact").value;
+			var reminderSMS = document.getElementById("reminderSMS").value;
+			var reminderRecurrence = document.getElementById("reminderRecurrence").value;
+
+			// Show an alert message when the reminder time is reached
+			setTimeout(function() {
+				alert("Reminder: " + reminderSubject + "\n\n" + reminderDescription + "\n\nEmail: " + reminderEmail + "\nContact No.: " + reminderContact + "\nSMS No.: " + reminderSMS);
+
+				// Recur the reminder if the recurrence is set
+				if (reminderRecurrence != "") {
+					var recurrenceDate = new Date(reminderDate);
+					recurrenceDate.setDate(recurrenceDate.getDate() + parseInt(reminderRecurrence));
+					document.getElementById("reminderDate").value = recurrenceDate.toISOString().slice(0, 10);
+					setReminder();
+				}
+			}, reminder.getTime() - Date.now());
+		}
+	</script>
+</head>
+<body>
+	<label for="reminderDate">Select Date:</label>
+	<input type="date" id="reminderDate"><br>
+
+	<label for="reminderSubject">Select Subject:</label>
+	<input type="text" id="reminderSubject"><br>
+
+	<label for="reminderDescription">Reminders:</label>
+	<textarea id="reminderDescription"></textarea><br>
+
+	<label for="reminderEmail">Email Address:</label>
+	<input type="email" id="reminderEmail"><br>
+
+	<label for="reminderContact">Contact No:</label>
+	<input type="tel" id="reminderContact"><br>
+
+	<label for="reminderSMS">SMS No:</label>
+	<input type="tel" id="reminderSMS"><br>
+
+	<label for="reminderRecurrence">Recur for next:</label>
+	<input type="number" id="reminderRecurrence" min="1"><br>
+
+	<button onclick="setReminder()">Set Reminder</button>
+</body>
+</html>
